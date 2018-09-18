@@ -11,7 +11,7 @@
 >  The action is enclosed in braces to separate it from the pattern. Newlines usually separate rules.
 >
  
- Some information taken from https://www.gnu.org/software/gawk/manual/gawk.html
+ Some information taken from [GAWK manual](https://www.gnu.org/software/gawk/manual/gawk.html)
 > NOTE: If you use Bash as your shell, you should execute the command
 > ?set +H? before running programs interactively, to disable the C shell-style
 > command history, which treats ?!? as a special character.
@@ -75,4 +75,51 @@ chmod +x *.awk
 ./03.awk 10-lines
 ./04.awk 10-lines
 ls -ld * | ./05.awk
+./06.awk 10-lines
+```
+
+## Command-line options
+#### -F _fs_
+ Set field separator ()FS variable= to _fs_ 
+
+Example:
+```bash
+find . -type f | awk -F "/" '{ print $NF }'
+``` 
+Find all files from current path and print only their names
+ (= the last field when separating on `/`).
+ 
+#### -v _var_=_val_
+Set variable _var_ to value _val_ before execution.
+Variable is available in BEGIN rule. 
+
+Example:
+```bash
+awk -v suffix="... But that's not the end." '{print $0 suffix}' 10-lines
+``` 
+Print all lines of the file, appending the given `suffix`.
+
+#### _var_=_val_
+Set variable _var_ to value _val_. 
+
+Example:
+```bash
+awk 'step==1 { print step"."$1 }
+     step==2 { print step"."$2}' FS=a step=1 10-lines step=2 10-lines
+``` 
+Make two passes on given file, the first with `step` set to 1
+and the second with `step` set to 2.
+The value of `step` is used for pattern matching.
+
+Note that setting `FS` variable is the same as using `-F` option.
+
+## Including other files in a program
+File `test1` ...
+```bash
+BEGIN {print "This is #1"}
+```
+... can be imported in `test2` as follows.
+```bash
+@include "test1"
+BEGIN {print "This is #2"}
 ```
