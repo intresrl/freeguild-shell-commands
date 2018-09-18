@@ -68,6 +68,7 @@ awk -f 03.awk 10-lines
 awk -f 04.awk 10-lines
 ls -ld * | awk -f 05.awk
 ```
+...and so on.
 
 Or:
 ```bash
@@ -76,6 +77,10 @@ chmod +x *.awk
 ./04.awk 10-lines
 ls -ld * | ./05.awk
 ./06.awk 10-lines
+./07.awk 10-lines
+./08.awk 10-lines
+./09.awk 10-lines
+seq 1 100 | ./FizzBuzz.awk
 ```
 
 ## Command-line options
