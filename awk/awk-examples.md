@@ -13,8 +13,8 @@
  
  Some information taken from [GAWK manual](https://www.gnu.org/software/gawk/manual/gawk.html)
 > NOTE: If you use Bash as your shell, you should execute the command
-> ?set +H? before running programs interactively, to disable the C shell-style
-> command history, which treats ?!? as a special character.
+> `set +H` before running programs interactively, to disable the C shell-style
+> command history, which treats `!` as a special character.
 
 
 ## Inline program (single-quotes are important!)
@@ -53,7 +53,7 @@ chmod +x 02.awk
 ## Quoting issues
 - Quoted and unquoted expressions can be concatenated simply
   by putting them one after another
-- Preceding any single character with a backslash (?\?) quotes that character
+- Preceding any single character with a backslash (`\ `) quotes that character
 - Single quotes protect everything between the opening and closing quotes. 
   The shell does no interpretation of the quoted text (also, it's impossible to embed a single quote inside single-quoted text)
 - Double quotes protect most things between the opening and closing quotes. 
@@ -85,7 +85,7 @@ seq 1 100 | ./FizzBuzz.awk
 
 ## Command-line options
 #### -F _fs_
- Set field separator ()FS variable= to _fs_ 
+ Set field separator (`FS`) variable= to _fs_ 
 
 Example:
 ```bash

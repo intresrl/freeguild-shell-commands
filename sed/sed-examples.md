@@ -4,9 +4,9 @@ Sed (stream editor) is a non-interactive command-line text editor.
 A stream editor is used to perform basic text transformations 
  on an input stream (a file or input from a pipeline).
 
-sed works by making only one pass over the input(s).
+`sed` works by making only one pass over the input(s).
 
-It is sed's ability to filter text in a pipeline which 
+It is `sed`'s ability to filter text in a pipeline which 
  particularly distinguishes it from other types of editors.
  
 ## Usage
@@ -18,7 +18,7 @@ usually used as
 sed SCRIPT INPUTFILE...
 ```
 
-E.g. the script `'s/hello/world/` replaces all `hello`s in the input with `world`. 
+E.g. the script `'s/hello/world/` replaces `hello` in the input with `world`. 
 All the following take their input from file `A` and write it to `B`.
 
 ```bash
@@ -114,7 +114,7 @@ sed commands follow this syntax:
   sed '66q99' input
   ```
 - `s/regexp/replacement/[flags]`: substitute reg.ex.
-  - See dedicated session
+  - See dedicated section
 - `y/src/dst/`: transliterate chars in source-chars with the corresponding in dest-chars.
   - replace all `a`s with `*` and all `o` with `#`
   ```bash
